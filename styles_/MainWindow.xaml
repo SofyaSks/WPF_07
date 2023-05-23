@@ -1,0 +1,41 @@
+﻿<Window x:Class="styles_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:styles_"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="18">
+    <Window.Resources>
+        <Style x:Key="style">
+            <Setter Property="Control.Background" Value="Green"/>
+            <Setter Property="Control.Height" Value="100"/>
+            <Setter Property="Control.Width" Value="100"/>
+
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="Red"/>
+                    <Setter Property="Control.RenderTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="45"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.RenderTransformOrigin" Value="0.5,0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style BasedOn="{StaticResource style}" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style BasedOn="{StaticResource style}" TargetType="Label"/>
+        <Style BasedOn="{StaticResource style}" TargetType="TextBox"/>
+        <Style BasedOn="{StaticResource style}" TargetType="CheckBox"/>
+
+    </Window.Resources>
+    <UniformGrid>
+        <Button>Button</Button>
+        <Label Style ="{StaticResource style}">label</Label>
+        <TextBox Style ="{StaticResource style}">TextBox</TextBox>
+        <CheckBox Style ="{StaticResource style}">CheckBox</CheckBox>
+    </UniformGrid>
+</Window>

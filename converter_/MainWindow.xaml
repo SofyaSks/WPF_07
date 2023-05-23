@@ -1,0 +1,25 @@
+﻿<Window x:Class="converter_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:converter_"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="48">
+
+    <Window.Resources>
+        <local:rusConverter x:Key="rusConverter"/>
+    </Window.Resources>
+    
+    <StackPanel>
+        <TextBlock>Choose presence: </TextBlock>
+        <ListBox ItemsSource="{Binding}" x:Name="listbox">
+            <!--<local:Presence>Present</local:Presence>
+            <local:Presence>Late</local:Presence>
+            <local:Presence>Absent</local:Presence>-->
+        </ListBox>
+        <TextBlock>Your choice: </TextBlock>
+        <TextBox Text="{Binding SelectedItem, ElementName=listbox,
+            Converter={StaticResource rusConverter}}"/>
+    </StackPanel>
+</Window>
